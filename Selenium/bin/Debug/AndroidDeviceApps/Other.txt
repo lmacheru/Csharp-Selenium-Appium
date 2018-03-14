@@ -1,0 +1,5 @@
+MessegingAppPckg,com.android.mms
+MessegingAppActivty,com.android.mms.ui.ConversationList
+CallAppPckg,
+CallAppActitivy,
+SettingApp,

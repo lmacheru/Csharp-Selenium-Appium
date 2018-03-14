@@ -1,0 +1,5 @@
+MessegingAppPckg,com.sonyericsson.conversations
+MessegingAppActivty,com.sonyericsson.conversations.ui.ConversationListActivity
+CallAppPckg,jj
+CallAppActitivy,jj
+SettingApp,hh

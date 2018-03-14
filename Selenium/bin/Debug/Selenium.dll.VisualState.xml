@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VisualState xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ShowCheckBoxes="true">
+  <TopNode>[0-1020]C:\Automation Work\Selenium,appium framework\Selenium\bin\Debug\Selenium.dll</TopNode>
+  <SelectedNode>[0-1015]Selenium.Shopping.ShoppingTest</SelectedNode>
+  <ExcludeCategories>false</ExcludeCategories>
+  <Nodes>
+    <Node UniqueName="[0-1020]C:\Automation Work\Selenium,appium framework\Selenium\bin\Debug\Selenium.dll" Expanded="true" />
+    <Node UniqueName="[0-1021]Selenium" Expanded="true" />
+    <Node UniqueName="[0-1002]Selenium.LoginOtp" Expanded="true" />
+    <Node UniqueName="[0-1000]Selenium.MySumPagetest" Expanded="true" />
+    <Node UniqueName="[0-1004]Selenium.Notification_Bar" Expanded="true" />
+    <Node UniqueName="[0-1006]Selenium.Register_and_DeRegister" Expanded="true" />
+    <Node UniqueName="[0-1007]Selenium.Register_and_DeRegister.Register_and_DeRegisterTest" Checked="true" />
+    <Node UniqueName="[0-1008]Selenium.Registration" Expanded="true" />
+    <Node UniqueName="[0-1010]Selenium.searchforDevicePackage" Expanded="true" />
+    <Node UniqueName="[0-1012]Selenium.SetReminder" Expanded="true" />
+    <Node UniqueName="[0-1014]Selenium.Shopping" Expanded="true" />
+    <Node UniqueName="[0-1015]Selenium.Shopping.ShoppingTest" Checked="true" />
+    <Node UniqueName="[0-1016]Selenium.StartChrome" Expanded="true" />
+    <Node UniqueName="[0-1018]Selenium.USSD_Dialer" Expanded="true" />
+  </Nodes>
+</VisualState>

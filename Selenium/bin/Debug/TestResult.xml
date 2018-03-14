@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\Automation Work\Selenium,appium framework\Selenium\bin\Debug\Selenium.dll" total="1" errors="1" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2018-03-06" time="15:38:18">
+  <environment nunit-version="2.6.1.12217" clr-version="4.0.30319.42000" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="C:\Automation Work\Selenium,appium framework\Selenium\bin\Debug" machine-name="LEHLOHONOLOMAC" user="bbdnet1454" user-domain="BBDNET" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="Assembly" name="C:\Automation Work\Selenium,appium framework\Selenium\bin\Debug\Selenium.dll" executed="True" result="Failure" success="False" time="57.554" asserts="0">
+    <results>
+      <test-suite type="Namespace" name="Selenium" executed="True" result="Failure" success="False" time="57.540" asserts="0">
+        <results>
+          <test-suite type="TestFixture" name="LoginOtp" executed="True" result="Failure" success="False" time="57.539" asserts="0">
+            <results>
+              <test-case name="Selenium.LoginOtp.VerifyBalanceTest" executed="True" result="Error" success="False" time="57.527" asserts="0">
+                <failure>
+                  <message><![CDATA[System.IO.IOException : Cannot create a file when that file already exists.
+]]></message>
+                  <stack-trace><![CDATA[at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+at System.IO.File.InternalMove(String sourceFileName, String destFileName, Boolean checkHost)
+at Selenium.ReportsManager.MoveFiles(String fromPath, String toPath, String className, String str) in C:\Automation Work\Selenium,appium framework\Selenium\Core\ReportsManager.cs:line 68
+at Selenium.ReportsManager.ScreenMove(String testname, String str) in C:\Automation Work\Selenium,appium framework\Selenium\Core\ReportsManager.cs:line 84
+at Selenium.ReportsManager.Screenshot(IWebDriver type, String StepName, String testname) in C:\Automation Work\Selenium,appium framework\Selenium\Core\ReportsManager.cs:line 37
+at Selenium.Core.PerformloginOtp(String userName, String passwrd, String testname, ReportsManager reports) in C:\Automation Work\Selenium,appium framework\Selenium\Core\Core.cs:line 173
+at Selenium.LoginOtp.VerifyBalanceTest() in C:\Automation Work\Selenium,appium framework\Selenium\TestCases\LoginOtp.cs:line 48
+]]></stack-trace>
+                </failure>
+              </test-case>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>
