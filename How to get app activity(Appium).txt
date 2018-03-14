@@ -1,0 +1,20 @@
+before attempting anything ensure that you phone is connected or the emulator is connected
+then open the app that you want to control after doing that follow these steps below
+
+
+1)go to Sdk folder -> platform tools and run cmd then on cmd run 
+$adb shell
+
+2)then past the comand below
+dumpsys window windows | grep -E 'mCurrentFocus|mFocusedApp'
+
+3)Cmd will return this text below and from this text only look at mCurrentFocus
+
+ mCurrentFocus=Window{5291c108 u0 com.android.mms/com.android.mms.ui.ConversationList}
+  mFocusedApp=AppWindowToken{529f893c token=Token{52a89dd8 ActivityRecord{529f8558 u0 com.android.mms/.ui.ConversationList}}}
+  
+from mCurrentFocus
+
+appPackage =com.android.mms
+appActivity =com.android.mms.ui.ConversationList
+
