@@ -1,0 +1,460 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Eyes.Selenium.DotNet</name>
+    </assembly>
+    <members>
+        <member name="T:Applitools.Selenium.ContextBasedScaleProvider">
+            <summary>
+            Scale provider which determines the scale ratio according to the context.
+            </summary>
+        </member>
+        <member name="M:Applitools.Selenium.ContextBasedScaleProvider.#ctor(System.Drawing.Size,System.Drawing.Size,System.Double)">
+            <summary>
+            creates a new <see cref="T:Applitools.Selenium.ContextBasedScaleProvider" /> instance.
+            </summary>
+            <param name="topLevelContextSize">The total size of the top level context. E.g., for 
+            Selenium this would be the document size of the top level frame.</param>
+            <param name="viewportSize">The viewport size.</param>
+            <param name="devicePixelRatio">The device pixel ratio of the platform of which the 
+            application is running.</param>
+        </member>
+        <member name="P:Applitools.Selenium.ContextBasedScaleProvider.ScaleRatio">
+            <inheritdoc />
+        </member>
+        <member name="T:Applitools.Selenium.ContextBasedScaleProviderFactory">
+            <summary>
+            Factory implementation for creating <see cref="T:Applitools.Selenium.ContextBasedScaleProvider"/> instances.
+            </summary>
+        </member>
+        <member name="T:Applitools.Selenium.Eyes">
+            <summary>
+            Applitools Eyes Selenium DotNet API.
+            </summary>
+        </member>
+        <member name="M:Applitools.Selenium.Eyes.#ctor(System.Uri)">
+            <summary>
+            Creates a new Eyes instance that interacts with the Eyes Server at the 
+            specified url.
+            </summary>
+            <param name="serverUrl">The Eyes server URL.</param>
+        </member>
+        <member name="M:Applitools.Selenium.Eyes.#ctor">
+            <summary>
+            Creates a new Eyes instance that interacts with the Eyes cloud service.
+            </summary>
+        </member>
+        <member name="P:Applitools.Selenium.Eyes.ForceFullPageScreenshot">
+            <summary>
+            Forces a full page screenshot (by scrolling and stitching) if the browser only 
+            supports viewport screenshots).
+            </summary>
+        </member>
+        <member name="M:Applitools.Selenium.Eyes.GetViewportSize(OpenQA.Selenium.IWebDriver)">
+            <summary>
+            Get the viewport size using the driver. Call this method if for some reason you don't 
+            want to call <see cref="M:Applitools.Selenium.Eyes.Open(OpenQA.Selenium.IWebDriver,System.String,System.String)"/> (or one of its variants) yet.
+            </summary>
+            <param name="driver">The driver to use for getting the viewport.</param>
+            <returns>The viewport size of the current context.</returns>
+        </member>
+        <member name="M:Applitools.Selenium.Eyes.SetViewportSize(OpenQA.Selenium.IWebDriver,System.Drawing.Size)">
+            <summary>
+            Set the viewport size using the driver. Call this method if for some reason you don't 
+            want to call <see cref="M:Applitools.Selenium.Eyes.Open(OpenQA.Selenium.IWebDriver,System.String,System.String)"/> (or one of its variants) yet.
+            </summary>
+            <param name="driver">The driver to use for setting the viewport.</param>
+            <param name="size">The required viewport size.</param>
+        </member>
+        <member name="M:Applitools.Selenium.Eyes.Open(OpenQA.Selenium.IWebDriver,System.String,System.String,System.Drawing.Size)">
+            <summary>
+            Starts a new test.
+            </summary>
+            <param name="driver">The web driver that controls the browser 
+            hosting the application under test.</param>
+            <param name="appName">The name of the application under test.</param>
+            <param name="testName">The test name.</param>
+            <param name="viewportSize">The required browser's viewport size 
+            (i.e., the visible part of the document's body) or <c>Size.Empty</c>
+            to allow any viewport size.</param>
+        </member>
+        <member name="M:Applitools.Selenium.Eyes.Open(OpenQA.Selenium.IWebDriver,System.String,System.String)">
+            <summary>
+            Starts a new test that does not dictate the viewport size of the application under
+            test.
+            </summary>
+        </member>
+        <member name="M:Applitools.Selenium.Eyes.CheckWindow(System.String)">
+            <summary>
+            Takes a snapshot of the application under test and matches it with
+            the expected output.
+            </summary>
+            <param name="tag">An optional tag to be associated with the snapshot.</param>
+            <exception cref="T:Applitools.TestFailedException">
+            Thrown if a mismatch is detected and immediate failure reports are enabled.</exception>
+        </member>
+        <member name="M:Applitools.Selenium.Eyes.CheckWindow(System.TimeSpan,System.String)">
+            <summary>
+            Takes a snapshot of the application under test and matches it with
+            the expected output.
+            </summary>
+            <param name="tag">An optional tag to be associated with the snapshot.</param>
+            <param name="matchTimeout">The amount of time to retry matching</param>
+            <exception cref="T:Applitools.TestFailedException">
+            Thrown if a mismatch is detected and immediate failure reports are enabled.</exception>
+        </member>
+        <member name="M:Applitools.Selenium.Eyes.CheckRegion(OpenQA.Selenium.By,System.String,System.Boolean,System.Int32)">
+            <summary>
+            If <paramref name="stitchContent"/> is <code>false</code> then behaves the same as <see cref="M:Applitools.Selenium.Eyes.CheckRegion(OpenQA.Selenium.By,System.String,System.Int32)"/>.
+            Otherwise, behaves the same as <see cref="M:Applitools.Selenium.Eyes.CheckElement(OpenQA.Selenium.By,System.String,System.Int32)"/>.
+            </summary>
+            <param name="selector">Selects the region to check</param>
+            <param name="tag">A tag to be associated with the snapshot.</param>
+            <param name="stitchContent">
+            If <paramref name="stitchContent"/> is <code>false</code> then behaves the same as <see cref="M:Applitools.Selenium.Eyes.CheckRegion(OpenQA.Selenium.By,System.String,System.Int32)"/>.
+            Otherwise, behaves the same as <see cref="M:Applitools.Selenium.Eyes.CheckElement(OpenQA.Selenium.By,System.String,System.Int32)"/>
+            <param name="matchTimeout">The amount of milliseconds to retry matching</param>
+            </param>
+        </member>
+        <member name="M:Applitools.Selenium.Eyes.CheckRegion(OpenQA.Selenium.By,System.String,System.Int32)">
+            <summary>
+            Takes a snapshot of the specified region of the application under test and matches it 
+            with the expected region output.
+            </summary>
+            <param name="selector">Selects the region to check</param>
+            <param name="tag">An optional tag to be associated with the snapshot.</param>
+            <param name="matchTimeout">The amount of milliseconds to retry matching</param>
+            <exception cref="T:Applitools.TestFailedException">
+            Thrown if a mismatch is detected and immediate failure reports are enabled.</exception>
+        </member>
+        <member name="M:Applitools.Selenium.Eyes.CheckRegion_(OpenQA.Selenium.By,System.String,Applitools.ICheckSettings)">
+            <summary>
+            Takes a snapshot of the specified region of the application under test and matches it 
+            with the expected region output.
+            </summary>
+            <param name="selector">Selects the region to check</param>
+            <param name="tag">An optional tag to be associated with the snapshot.</param>
+            <param name="checkSettings">The settings for the match.</param>
+            <exception cref="T:Applitools.TestFailedException">
+            Thrown if a mismatch is detected and immediate failure reports are enabled.</exception>
+        </member>
+        <member name="M:Applitools.Selenium.Eyes.CheckRegion(OpenQA.Selenium.By,System.TimeSpan,System.String)">
+            <summary>
+            Takes a snapshot of the specified region of the application under test and matches it 
+            with the expected region output.
+            </summary>
+            <param name="selector">Selects the region to check</param>
+            <param name="tag">An optional tag to be associated with the snapshot.</param>
+            <param name="matchTimeout">The amount of time to retry matching</param>
+            <exception cref="T:Applitools.TestFailedException">
+            Thrown if a mismatch is detected and immediate failure reports are enabled.</exception>
+        </member>
+        <member name="M:Applitools.Selenium.Eyes.CheckRegion(System.Drawing.Rectangle,System.String,System.Int32)">
+            <summary>
+            Takes a snapshot of the specified region of the application under test and matches it 
+            with the expected region output.
+            </summary>
+            <param name="region">The region to check</param>
+            <param name="tag">An optional tag to be associated with the snapshot.</param>
+            <param name="matchTimeout">The amount of time to retry matching</param>
+            <exception cref="T:Applitools.TestFailedException">
+            Thrown if a mismatch is detected and immediate failure reports are enabled.</exception>
+        </member>
+        <member name="M:Applitools.Selenium.Eyes.CheckRegion(System.Drawing.Rectangle,System.TimeSpan,System.String)">
+            <summary>
+            Takes a snapshot of the specified region of the application under test and matches it 
+            with the expected region output.
+            </summary>
+            <param name="region">The region to check</param>
+            <param name="tag">An optional tag to be associated with the snapshot.</param>
+            <param name="matchTimeout">The amount of time to retry matching</param>
+            <exception cref="T:Applitools.TestFailedException">
+            Thrown if a mismatch is detected and immediate failure reports are enabled.</exception>
+        </member>
+        <member name="M:Applitools.Selenium.Eyes.InRegion(System.Drawing.Rectangle)">
+            <summary>
+            Specifies a region of the current application window.
+            </summary>
+        </member>
+        <member name="M:Applitools.Selenium.Eyes.InRegion(OpenQA.Selenium.By)">
+            <summary>
+            Specifies a region of the current application window.
+            </summary>
+        </member>
+        <member name="M:Applitools.Selenium.Eyes.Check(System.String,Applitools.ICheckSettings)">
+            <summary>
+            Takes a snapshot of the application under test, where the capture area and settings
+            are given by <paramref name="checkSettings"/>.
+            </summary>
+            <param name="name">A tag to be associated with the match.</param>
+            <param name="checkSettings">A settings object defining the capture area and parameters.
+            Created fluently using the <see cref="T:Applitools.Selenium.Target"/> static class.</param>
+        </member>
+        <member name="M:Applitools.Selenium.Eyes.CheckElement(OpenQA.Selenium.By,System.String,System.Int32)">
+            <summary>
+            Takes a snapshot of the application under test and matches a specific element with the expected region output.
+            </summary>
+            <param name="by">The selector by which to get the element.</param>
+            <param name="tag">Optional. A tag to be associated with the match.</param>
+            <param name="matchTimeout">The amount of time to retry matching in milliseconds.</param>
+        </member>
+        <member name="M:Applitools.Selenium.Eyes.CheckFrame(System.String,System.String)">
+            <summary>
+            Matches the frame given as parameter, by switching into the frame and using stitching to get an image of the frame.
+            </summary>
+            <param name="frameNameOrId">The name or id of the frame to check. (The same name/id as would be used in a call to driver.SwitchTo().Frame())</param>
+            <param name="tag">Optional. A tag to be associated with the match.</param>
+        </member>
+        <member name="M:Applitools.Selenium.Eyes.CheckFrame(System.String,System.TimeSpan,System.String)">
+            <summary>
+            Matches the frame given as parameter, by switching into the frame and using stitching to get an image of the frame.
+            </summary>
+            <param name="frameNameOrId">The name or id of the frame to check. (The same name/id as would be used in a call to driver.SwitchTo().Frame())</param>
+            <param name="matchTimeout">The amount of time to retry matching.</param>
+            <param name="tag">Optional. A tag to be associated with the match.</param>
+        </member>
+        <member name="M:Applitools.Selenium.Eyes.CheckFrame(System.Int32,System.TimeSpan,System.String)">
+            <summary>
+            Matches the frame given as parameter, by switching into the frame and using stitching to get an image of the frame.
+            </summary>
+            <param name="frameIndex">The index of the frame to check. (The same index as would be used in a call to driver.SwitchTo().Frame())</param>
+            <param name="matchTimeout">The amount of time to retry matching.</param>
+            <param name="tag">Optional. A tag to be associated with the match.</param>
+        </member>
+        <member name="M:Applitools.Selenium.Eyes.CheckFrame(OpenQA.Selenium.IWebElement,System.TimeSpan,System.String)">
+            <summary>
+            Matches the frame given as parameter, by switching into the frame and using stitching to get an image of the frame.
+            </summary>
+            <param name="frameReference">The element which is the frame to check. (The same element as would be used in a call to driver.SwitchTo().Frame())</param>
+            <param name="matchTimeout">The amount of time to retry matching.</param>
+            <param name="tag">Optional. A tag to be associated with the match.</param>
+        </member>
+        <member name="M:Applitools.Selenium.Eyes.CheckFrame(System.String[],System.TimeSpan,System.String)">
+            <summary>
+            Matches the frame given as parameter, by switching into the frame and using stitching to get an image of the frame.
+            </summary>
+            <param name="framePath">The path to the frame to check. This is a list of frame names/IDs (where each frame is nested in the previous frame)</param>
+            <param name="matchTimeout">The amount of time to retry matching.</param>
+            <param name="tag">Optional. A tag to be associated with the match.</param>
+        </member>
+        <member name="T:Applitools.Selenium.EyesKeyboard">
+            <summary>
+            A wrapper class for Selenium's Keyboard interface, so we can record keyboard
+            events.
+            </summary>
+        </member>
+        <member name="T:Applitools.Selenium.EyesMouse">
+            <summary>
+            A wrapper class for Selenium's Mouse class. It adds saving of mouse events
+            so they can be sent to the agent later on.
+            </summary>
+        </member>
+        <member name="P:Applitools.Selenium.EyesMouse.Logger">
+            <summary>
+            Message logger.
+            </summary>
+        </member>
+        <member name="M:Applitools.Selenium.EyesMouse.MoveIfNeeded(OpenQA.Selenium.Interactions.Internal.ICoordinates)">
+            <summary>
+            Moves the mouse according to the coordinates, if required.
+            </summary>
+            <param name="where">The coordinates to move to. If null,
+            mouse position does not changes. </param>
+        </member>
+        <member name="P:Applitools.Selenium.EyesRemoteWebElement.Overflow">
+            <summary>
+            Gets or sets the overflow of the element.
+            </summary>
+        </member>
+        <member name="M:Applitools.Selenium.EyesRemoteWebElement.GetPixelComputedStyle(System.String)">
+            <summary>
+            Gets the integer value of a computed style.
+            </summary>
+            <param name="propStyle">The style's property name.</param>
+            <returns>The integer value of a computed style.</returns>
+        </member>
+        <member name="M:Applitools.Selenium.EyesRemoteWebElement.WrapElementIfRemote_(OpenQA.Selenium.IWebElement)">
+            <summary>
+            For RemoteWebElement object, the function returns an 
+            EyesRemoteWebElement object. For all other types of WebElement, 
+            the function returns the original object.
+            </summary>
+        </member>
+        <member name="M:Applitools.Selenium.EyesRemoteWebElement.WrapElements_(System.Collections.Generic.IEnumerable{OpenQA.Selenium.IWebElement})">
+            <summary>
+            For RemoteWebElement object, the function returns an 
+            EyesRemoteWebElement object. For all other types of WebElement, 
+            the function returns the original object.
+            </summary>
+            <param name="elementsToWrap"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Applitools.Selenium.EyesSeleniumUtils.IsLandscapeOrientationImpl_(OpenQA.Selenium.IWebDriver)">
+            <summary>
+            Returns whether the device represented by <paramref name="driver"/> is in landscape mode or not.
+            </summary>
+            <param name="driver">The driver for which to check the orientation.</param>
+            <returns>True if this is a mobile device and is in landscape orientation, or False otherwise.</returns>
+        </member>
+        <member name="M:Applitools.Selenium.EyesWebDriver.GetDefaultContentViewportSize(System.Boolean)">
+            <summary>
+            Returns the viewport size of the default content (outer most frame).
+            </summary>
+            <param name="forceQuery">If true, we will perform the query even if we have a cached viewport size.</param>
+            <returns>The viewport size of the default content (outer most frame).</returns>
+        </member>
+        <member name="M:Applitools.Selenium.EyesWebDriver.GetFullPageScreenshot(Applitools.Utils.IPositionProvider,Applitools.Utils.IPositionProvider,Applitools.Utils.ScaleProviderFactory,System.Int32)">
+            <summary>
+            Creates a full page image by scrolling the viewport and "stitching" the screenshots to 
+            each other.  
+            </summary>
+            <param name="originProvider">A position provider as defined 
+            by <see cref="M:Applitools.FullPageCaptureAlgorithm.GetFullPageScreenshot(Applitools.Logger,Applitools.Utils.IPositionProvider,Applitools.Utils.IPositionProvider,Applitools.Utils.ScaleProviderFactory,System.Int32,Applitools.IDebugScreenshotProvider,System.Func{System.Byte[]},System.Func{System.Drawing.Bitmap,Applitools.EyesScreenshot})" />. </param>
+            <param name="stitchProvider">A position provider as 
+            defined by <see cref="M:Applitools.FullPageCaptureAlgorithm.GetFullPageScreenshot(Applitools.Logger,Applitools.Utils.IPositionProvider,Applitools.Utils.IPositionProvider,Applitools.Utils.ScaleProviderFactory,System.Int32,Applitools.IDebugScreenshotProvider,System.Func{System.Byte[]},System.Func{System.Drawing.Bitmap,Applitools.EyesScreenshot})" />. </param>
+            <param name="scaleProviderFactory">The scale provider to use for each screenshot composing 
+            the full page screenshot.</param> 
+            <param name="waitBeforeScreenshots">The amount of time to wait before taking a 
+            screenshot. (Milliseconds)</param>
+            <returns>The image of the entire page.</returns>
+        </member>
+        <member name="F:Applitools.Selenium.EyesWebDriverScreenshot.frameWindow_">
+            <summary>
+            The part of the frame window which is visible in the screenshot 
+            </summary>
+        </member>
+        <member name="F:Applitools.Selenium.EyesWebDriverScreenshot.frameLocationInScreenshot_">
+            <summary>
+            The top/left coordinates of the frame window(!) relative to the top/left
+            of the screenshot. Used for calculations, so can also be outside(!)
+            the screenshot.
+            </summary>
+        </member>
+        <member name="M:Applitools.Selenium.EyesWebDriverScreenshot.#ctor(Applitools.Logger,Applitools.Selenium.EyesWebDriver,System.Drawing.Bitmap,System.Drawing.Size)">
+            <summary>
+            Create a frame(!) window screenshot
+            </summary>
+            <param name="logger"></param>
+            <param name="driver"></param>
+            <param name="image"></param>
+            <param name="entireFrameSize"></param>
+        </member>
+        <member name="M:Applitools.Selenium.EyesWebDriverTargetLocator.Frames(Applitools.Selenium.FrameChain)">
+            <summary>
+            Switches into every frame in the frame chain. This is used as way to
+            switch into nested frames (while considering scroll) in a single call.
+            </summary>
+            <param name="frameChain">The path to the frame to switch to.</param>
+            <returns>The WebDriver with the switched context.</returns>
+        </member>
+        <member name="M:Applitools.Selenium.EyesWebDriverTargetLocator.Frames(System.String[])">
+            <summary>
+            Switches into every frame in the list. This is used as way to switch into nested frames in a single call.
+            </summary>
+            <param name="framesPath">The path to the frame to check. This is a list of frame names/IDs (where each frame is nested in the previous frame).</param>
+            <returns>The WebDriver with the switched context.</returns>
+        </member>
+        <member name="M:Applitools.Selenium.FrameChain.IsSameFrameChain(Applitools.Selenium.FrameChain,Applitools.Selenium.FrameChain)">
+            <summary>
+            Compares two frame chains.
+            </summary>
+            <param name="c1">Frame chain to be compared against c2.</param>
+            <param name="c2">Frame chain to be compared against c1.</param>
+            <returns>True if both frame chains represent the same frame, or false otherwise.</returns>
+        </member>
+        <member name="M:Applitools.Selenium.FrameChain.Clear">
+            <summary>
+            Removes all current frames in the frame chain.
+            </summary>
+        </member>
+        <member name="M:Applitools.Selenium.FrameChain.Pop">
+            <summary>
+            Removes the last inserted frame element. Practically means we switched
+            back to the parent of the current frame
+            </summary>
+        </member>
+        <member name="M:Applitools.Selenium.FrameChain.Push(Applitools.Selenium.Frame)">
+            <summary>
+            Appends a frame to the frame chain.
+            </summary>
+            <param name="frame">The frame to be added.</param>
+        </member>
+        <member name="M:Applitools.Selenium.FrameChain.GetCurrentFrameSize">
+            <summary>
+            Returns the size of the current frame.
+            </summary>
+            <returns>The size of the current frame.</returns>
+        </member>
+        <member name="M:Applitools.Selenium.FrameChain.GetCurrentFrameInnerSize">
+            <summary>
+            Returns the inner size of the current frame.
+            </summary>
+            <returns>The inner size of the current frame.</returns>
+        </member>
+        <member name="T:Applitools.Selenium.InRegion">
+            <summary>
+            An <see cref="T:Applitools.Selenium.InRegion"/> API.
+            </summary>
+        </member>
+        <member name="M:Applitools.Selenium.InRegion.#ctor(OpenQA.Selenium.IWebDriver,Applitools.InRegionBase)">
+            <summary>
+            Creates a new <see cref="T:Applitools.Selenium.InRegion"/> instance.
+            </summary>
+        </member>
+        <member name="M:Applitools.Selenium.InRegion.And(System.Drawing.Rectangle)">
+            <summary>
+            Add another window region.
+            </summary>
+        </member>
+        <member name="M:Applitools.Selenium.InRegion.And(OpenQA.Selenium.By)">
+            <summary>
+            Add another window region.
+            </summary>
+        </member>
+        <member name="M:Applitools.Selenium.InRegion.GetText">
+            <summary>
+            Gets the text found in this region.
+            </summary>
+        </member>
+        <member name="T:Applitools.Selenium.InRegions">
+            <summary>
+            An <see cref="T:Applitools.Selenium.InRegions"/> API.
+            </summary>
+        </member>
+        <member name="M:Applitools.Selenium.InRegions.#ctor(OpenQA.Selenium.IWebDriver,Applitools.InRegionsBase)">
+            <summary>
+            Creates a new <see cref="T:Applitools.Selenium.InRegions"/> instance.
+            </summary>
+        </member>
+        <member name="M:Applitools.Selenium.InRegions.And(System.Drawing.Rectangle)">
+            <summary>
+            Adds additional region to this sequence of regions.
+            </summary>
+        </member>
+        <member name="M:Applitools.Selenium.InRegions.And(OpenQA.Selenium.By)">
+            <summary>
+            Adds additional region to this sequence of regions.
+            </summary>
+        </member>
+        <member name="M:Applitools.Selenium.InRegions.GetText">
+            <summary>
+            Gets the text found in this sequence of regions.
+            </summary>
+        </member>
+        <member name="T:Applitools.Selenium.MoveToRegionVisibilityStrategy">
+            <summary>
+            An implementation of <see cref="T:Applitools.Selenium.IRegionVisibilityStrategy"/> which tries to move the region.
+            </summary>
+        </member>
+        <member name="T:Applitools.Selenium.NopRegionVisibilityStrategy">
+            <summary>
+            An implementation of <see cref="T:Applitools.Selenium.IRegionVisibilityStrategy"/> which does nothing.
+            </summary>
+        </member>
+        <member name="T:Applitools.Selenium.IRegionVisibilityStrategy">
+            <summary>
+            Encapsulates implementations for providing region visibility during checkRegion.
+            </summary>
+        </member>
+    </members>
+</doc>

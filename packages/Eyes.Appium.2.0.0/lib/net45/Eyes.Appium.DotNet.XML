@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Eyes.Appium.DotNet</name>
+    </assembly>
+    <members>
+        <member name="M:Applitools.Appium.Eyes.#ctor(System.Uri)">
+            <summary>
+            Creates a new Eyes instance that interacts with the Eyes Server at the 
+            specified url.
+            </summary>
+            <param name="serverUrl">The Eyes server URL.</param>
+        </member>
+        <member name="M:Applitools.Appium.Eyes.#ctor">
+            <summary>
+            Creates a new Eyes instance that interacts with the Eyes cloud service.
+            </summary>
+        </member>
+        <member name="M:Applitools.Appium.Eyes.IsLandscapeOrientationImpl_(OpenQA.Selenium.IWebDriver)">
+            <summary>
+            Returns whether the device represented by <paramref name="driver"/> is in landscape mode or not.
+            </summary>
+            <param name="driver">The driver for which to check the orientation.</param>
+            <returns>True if this is a mobile device and is in landscape orientation, or False otherwise.</returns>
+        </member>
+    </members>
+</doc>
